@@ -71,6 +71,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::post('/checkout', [CheckoutController::class,'checkout'])->name('checkout');
 
+    Route::get('/order-success/{order}', [CheckoutController::class, 'order_success'])->name('order_success');
 
 
     Route::middleware(['auth', 'isAdmin'])->prefix('dashboard')->name('dashboard.')->group(function () {

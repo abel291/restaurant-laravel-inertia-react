@@ -114,7 +114,7 @@ input[type="email"],
 select,
 textarea,
 .content_stripe {
-    @apply border border-gray-300 shadow-sm rounded focus:ring-2 px-4 font-light focus:ring-yellow-500 focus:border-yellow-500;
+    @apply border border-gray-300 shadow-sm rounded focus:ring-2 px-4 font-light focus:ring-yellow-500 focus:border-yellow-500 disabled:bg-gray-100 disabled:text-gray-400;
 }
 
 nav .nav-link-item {

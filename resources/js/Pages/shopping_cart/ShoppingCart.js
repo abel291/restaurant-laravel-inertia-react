@@ -8,7 +8,7 @@ import CartResumen from "./CartResumen";
 import Form from "./Form";
 
 const ShoppingCart = (props) => {
-    const stripePromise = loadStripe("pk_test_6pRNASCoBOKtIshFeQd4XMUh");
+    const stripePromise = loadStripe("pk_test_ejdWQWajqC4QwST95KoZiDZK");
     return (
         <AppLayout title="Carrito de Compra">
             <BannerHero

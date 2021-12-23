@@ -1,16 +1,14 @@
-import React from 'react';
+import SpinnerLoad from "@/componentss/SpinnerLoad";
+import React from "react";
 
-export default function Button({ type = 'submit', className = '', processing, children }) {
+export default function Button({
+    type = "submit",
+    className = "",
+    processing,
+    children,
+}) {
     return (
-        <button
-            type={type}
-            className={
-                `btn bg-yellow-500 btn-sm ${
-                    processing && 'opacity-25'
-                } ` + className
-            }
-            disabled={processing}
-        >
+        <button type={type}  className="btn bg-yellow-500 btn-sm disabled:opacity-50 " disabled={processing} >
             {children}
         </button>
     );

@@ -43,7 +43,7 @@ class User extends Authenticatable
      *
      * @var array<string, string>
      */
-    
+
     protected $casts = [
         'name' => 'string',
         'phone' => 'string',
@@ -60,10 +60,14 @@ class User extends Authenticatable
      *
      * @var array
      */
-    
+
     public function shopping_cart()
     {
         return $this->belongsToMany(Product::class, 'shopping_cart')->withPivot('quantity', 'total_price_quantity')->withTimestamps();
+    }
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
     }
 
     public function getTotalPriceAttribute()
@@ -92,14 +96,12 @@ class User extends Authenticatable
 
         return [
             'tax_percent' => $tax_percent,
+            'tax_amount' => round($tax_amount, 2),
             'shipping' => $shipping,
             'sub_total' => round($sub_total, 2),
-            'tax_amount' => round($tax_amount, 2),
             'total' => round($total, 2),
             'discount' => $discount,
             'discount_availables' => $discount_availables
         ];
     }
-
-    
 }
