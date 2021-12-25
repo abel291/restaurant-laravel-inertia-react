@@ -94,7 +94,7 @@ const MenuHeader = ({ title, data }) => {
                 leaveFrom="transform opacity-100 scale-100"
                 leaveTo="transform opacity-0 scale-95"
             >
-                <Menu.Items className="absolute right-0 w-60 mt-2 origin-top-right bg-yellow-500 divide-y divide-yellow-600 divide-opacity-30  shadow-lg focus:outline-none text-white uppercase font-roboto font-bold text-sm tracking-wide rounded">
+                <Menu.Items className="absolute right-0 w-60 mt-2 origin-top-right bg-yellow-500 divide-y divide-yellow-600 divide-opacity-30  shadow-lg focus:outline-none text-white uppercase font-bold text-sm tracking-wide rounded font-sans">
                     {data.map((item) => (
                         <Menu.Item key={item.name}>
                             <Link href={item.path} className="py-3 px-3 block">

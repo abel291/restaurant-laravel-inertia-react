@@ -8,7 +8,7 @@ export default function Button({
     children,
 }) {
     return (
-        <button type={type}  className="btn bg-yellow-500 btn-sm disabled:opacity-50 " disabled={processing} >
+        <button type={type} className={"btn  bg-yellow-500 btn-sm disabled:opacity-50 "+className} disabled={processing} >
             {children}
         </button>
     );

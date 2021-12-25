@@ -42,7 +42,7 @@ class CheckoutController extends Controller
         });
 
         $total_price = $user->total_price; //mutator
-        
+
         if ($total_price['discount']) {
             $discount = $total_price['discount'];
             $order->discount = [
@@ -59,7 +59,7 @@ class CheckoutController extends Controller
         $order->sub_total = $total_price['sub_total'];
         $order->total = $total_price['total'];
         $order->order = rand(1000, 9999) . date('md') . $user->id;
-        
+
         try {
 
             $description_stripe = $user->name . " - " . $user->shopping_cart->count() . " plato(s)";
@@ -87,14 +87,19 @@ class CheckoutController extends Controller
             $error = 'Al parecer hubo un error! El pago a través de su targeta no se pudo realizar.';
             return response()->json(['error' => $error], 500);
         }
-        return Redirect::route('order_success',[$order->order]);
+        return Redirect::route('order_success', [$order->order]);
     }
     public function order_success(Request $request)
-    {
+    {   
+        
         $user = auth()->user();
+        
         $order = $user->orders()->where('order', $request->order)->first();
-        //dd($order);
-        return Inertia::render('shopping_cart/Success', [
+        
+        if (!$order) {
+            return Redirect::route('home');
+        }
+        return Inertia::render('shopping_cart/OrderDetails', [
             'order' => $order,
         ]);
     }

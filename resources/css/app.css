@@ -80,7 +80,7 @@ body {
     @apply transition duration-500 transform scale-110 brightness-50;
 }
 .galleries-image-hover:hover > div {
-    @apply transition duration-500 transform opacity-100  -translate-y-full;
+    @apply transition duration-500 transform opacity-100 -translate-y-full;
 }
 .terms p {
     @apply font-light mt-4;
@@ -97,7 +97,7 @@ body {
 }
 
 .btn {
-    @apply uppercase inline-block  font-primary text-white rounded  leading-none;
+    @apply uppercase inline-block font-primary text-white rounded leading-none;
 }
 .btn-sm {
     @apply py-3 px-8 text-base leading-none;

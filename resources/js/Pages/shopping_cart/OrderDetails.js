@@ -4,13 +4,12 @@ import { CheckCircleIcon } from "@heroicons/react/solid";
 
 import AppLayout from "../../Layouts/AppLayout";
 
-const Success = ({ order }) => {
+const OrderDetails = ({ order }) => {
     return (
-        <AppLayout title={"Order " + order.order}>
-            <BannerHero title="Pedido Aceptado" />
+        <AppLayout title={"Orden " + order.order}>
+            <BannerHero title="Detalles de pedido" img="order/banner.jpg" />
             <div className="container ">
                 <div className="py-content max-w-3xl mx-auto space-y-7">
-                    
                     {/* <div className="bg-green-100 p-2 md:p-4 flex space-x-2 rounded-md">
                         <CheckCircleIcon className="h-5 w-5 text-green-400" />
                         <div className="text-green-700">
@@ -96,7 +95,10 @@ const Success = ({ order }) => {
                                             Descuento
                                         </td>
                                         <td className="px-6 py-3">
-                                            -{fomatCurrency(order.discount.applied)}
+                                            -
+                                            {fomatCurrency(
+                                                order.discount.applied
+                                            )}
                                         </td>
                                     </tr>
                                 )}
@@ -129,4 +131,4 @@ const Success = ({ order }) => {
     );
 };
 
-export default Success;
+export default OrderDetails;

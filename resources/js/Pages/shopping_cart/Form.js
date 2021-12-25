@@ -11,7 +11,7 @@ import {
 import { CashIcon } from "@heroicons/react/outline";
 import { Inertia } from "@inertiajs/inertia";
 import Label from "@/Components/Label";
-import Input from "@/Components copy/Input";
+import Input from "@/Components/Input";
 import ValidationErrors from "@/Components/ValidationErrors";
 import Button from "@/Components/Button";
 

@@ -73,6 +73,11 @@ class PageSeeder extends Seeder
                 'img' => 'contact/banner.jpg',
                 "title" => "CONTÁCTENOS",
             ],
+            // [
+            //     'type' => 'order',
+            //     'img' => 'order/banner.jpg',
+            //     "title" => "",
+            // ],
         ];
         Page::truncate();
         Page::factory()

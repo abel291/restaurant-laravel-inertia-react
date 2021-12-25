@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShoppingCartController;
 
 use App\Http\Livewire\Category\ListCategories;
@@ -56,15 +57,15 @@ Route::get('/product/{slug}', [PageController::class, 'product'])->name('product
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
+    Route::get('/my-account', [ProfileController::class,'my_account'])->name('my_account');
+
+    Route::get('/account-details', [ProfileController::class,'show_account_details'])->name('show_account_details');
 
     Route::resource('shopping-cart', ShoppingCartController::class)->only([
         'index', 'store', 'destroy'
     ]);
-
     Route::get('/shopping-cart/apply-cupon-discount', [ShoppingCartController::class, 'apply_cupon_discount'])
-        ->name('apply_cupon_discount');
-
-        
+        ->name('apply_cupon_discount');        
 
     Route::get('/shopping-cart/remove-cupon-discount', [ShoppingCartController::class, 'remove_cupon_discount'])
         ->name('remove_cupon_discount');
