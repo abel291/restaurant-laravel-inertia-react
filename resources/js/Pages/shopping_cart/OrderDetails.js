@@ -1,5 +1,5 @@
 import BannerHero from "@/componentss/BannerHero";
-import { fomatCurrency } from "@/helpers/helpers";
+import { formatCurrency } from "@/helpers/helpers";
 import { CheckCircleIcon } from "@heroicons/react/solid";
 
 import AppLayout from "../../Layouts/AppLayout";
@@ -45,7 +45,7 @@ const OrderDetails = ({ order }) => {
                         <div className="w-1/2 md:w-auto md:px-5 mb-2 md:mb-0">
                             <span className=" uppercase text-sm ">total</span>
                             <div className=" font-semibold ">
-                                {fomatCurrency(order.total)}
+                                {formatCurrency(order.total)}
                             </div>
                         </div>
                         <div className="w-1/2 md:w-auto md:px-5 mb-2 md:mb-0">
@@ -76,7 +76,7 @@ const OrderDetails = ({ order }) => {
                                             {product.quantity} x {product.name}
                                         </td>
                                         <td className="px-6 py-3">
-                                            {fomatCurrency(
+                                            {formatCurrency(
                                                 product.total_price_quantity
                                             )}
                                         </td>
@@ -85,7 +85,7 @@ const OrderDetails = ({ order }) => {
                                 <tr className="font-medium italic">
                                     <td className="px-6 py-3 ">Subtotal</td>
                                     <td className="px-6 py-3">
-                                        {fomatCurrency(order.sub_total)}
+                                        {formatCurrency(order.sub_total)}
                                     </td>
                                 </tr>
 
@@ -96,7 +96,7 @@ const OrderDetails = ({ order }) => {
                                         </td>
                                         <td className="px-6 py-3">
                                             -
-                                            {fomatCurrency(
+                                            {formatCurrency(
                                                 order.discount.applied
                                             )}
                                         </td>
@@ -107,19 +107,19 @@ const OrderDetails = ({ order }) => {
                                         Impuestos ({order.tax_percent}%)
                                     </td>
                                     <td className="px-6 py-3">
-                                        {fomatCurrency(order.tax_amount)}
+                                        {formatCurrency(order.tax_amount)}
                                     </td>
                                 </tr>
                                 <tr className="font-medium italic">
                                     <td className="px-6 py-3 ">Envio</td>
                                     <td className="px-6 py-3">
-                                        {fomatCurrency(order.shipping)}
+                                        {formatCurrency(order.shipping)}
                                     </td>
                                 </tr>
                                 <tr className="font-bold  text-xl">
                                     <td className="px-6 py-3 ">Total</td>
                                     <td className="px-6 py-3">
-                                        {fomatCurrency(order.total)}
+                                        {formatCurrency(order.total)}
                                     </td>
                                 </tr>
                             </tbody>

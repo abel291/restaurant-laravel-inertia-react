@@ -1,5 +1,5 @@
 import SpinnerLoad from "@/componentss/SpinnerLoad";
-import { fomatCurrency } from "@/helpers/helpers";
+import { formatCurrency } from "@/helpers/helpers";
 import { XIcon } from "@heroicons/react/solid";
 import { Link, useForm, usePage } from "@inertiajs/inertia-react";
 
@@ -38,15 +38,15 @@ const CartResumen = ({ meta }) => {
                 <div className="mt-5 divide-y divide-gray-200 font-medium ">
                     <div className="flex justify-between py-4  leading-none">
                         <div>Subtotal</div>
-                        <div>{fomatCurrency(meta.sub_total)}</div>
+                        <div>{formatCurrency(meta.sub_total)}</div>
                     </div>
                     <div className="flex justify-between py-4  leading-none">
                         <div>Shipping</div>
-                        <div>{fomatCurrency(meta.shipping)}</div>
+                        <div>{formatCurrency(meta.shipping)}</div>
                     </div>
                     <div className="flex justify-between py-4  leading-none">
                         <div>Tax ({meta.tax_percent} %)</div>
-                        <div>{fomatCurrency(meta.tax_amount)}</div>
+                        <div>{formatCurrency(meta.tax_amount)}</div>
                     </div>
                     {meta.discount && (
                         <div className="flex justify-between py-4 text-green-500 ">
@@ -62,12 +62,12 @@ const CartResumen = ({ meta }) => {
                                 </button>
                                 <div className="ml-2">Descuento</div>
                             </div>
-                            <div>-{fomatCurrency(meta.discount.applied)}</div>
+                            <div>-{formatCurrency(meta.discount.applied)}</div>
                         </div>
                     )}
                     <div className="flex justify-between pt-5 text-xl font-bold ">
                         <div>Total</div>
-                        <div>{fomatCurrency(meta.total)}</div>
+                        <div>{formatCurrency(meta.total)}</div>
                     </div>
                 </div>
                 

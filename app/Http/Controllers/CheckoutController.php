@@ -89,18 +89,5 @@ class CheckoutController extends Controller
         }
         return Redirect::route('order_success', [$order->order]);
     }
-    public function order_success(Request $request)
-    {   
-        
-        $user = auth()->user();
-        
-        $order = $user->orders()->where('order', $request->order)->first();
-        
-        if (!$order) {
-            return Redirect::route('home');
-        }
-        return Inertia::render('shopping_cart/OrderDetails', [
-            'order' => $order,
-        ]);
-    }
+    
 }

@@ -1,4 +1,4 @@
-import { fomatCurrency } from "@/helpers/helpers";
+import { formatCurrency } from "@/helpers/helpers";
 import { Link, useForm, usePage } from "@inertiajs/inertia-react";
 import { useEffect, useRef } from "react";
 import SelectQuantity from "../product/SelectQuantity";
@@ -82,7 +82,7 @@ const CartItem = ({ product }) => {
 
                         {product.quantity > 1 && (
                             <div className="text-sm text-gray-500 mt-2">
-                                1 x {fomatCurrency(product.price)}
+                                1 x {formatCurrency(product.price)}
                             </div>
                         )}
                     </div>
@@ -91,7 +91,7 @@ const CartItem = ({ product }) => {
                 <div className=" col-span-6 lg:col-span-2 text-right">
                     <div className="flex flex-col justify-between h-full">
                         <div className="font-primary text-2xl ">
-                            {fomatCurrency(product.quantity * product.price)}
+                            {formatCurrency(product.quantity * product.price)}
                         </div>
                         <div className="text-sm text-red mt-2">
                             {removeProductToCart.errors &&

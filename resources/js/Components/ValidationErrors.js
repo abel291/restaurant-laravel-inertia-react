@@ -5,9 +5,9 @@ export default function ValidationErrors({ errors }) {
     useEffect(() => {        
         if (Object.keys(errors).length) {
             let divError = document.getElementById("error-message");
-            console.log(divError.offsetTop);
+            
             scroll({
-                top: divError.offsetTop,
+                top: divError.offsetTop - 50,
                 behavior: "smooth",
             });
         }

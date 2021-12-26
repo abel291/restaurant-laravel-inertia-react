@@ -1,4 +1,4 @@
-import { fomatCurrency } from "@/helpers/helpers";
+import { formatCurrency } from "@/helpers/helpers";
 import { Link } from "@inertiajs/inertia-react";
 
 const GiftCardsItem = ({ card }) => {
@@ -11,7 +11,7 @@ const GiftCardsItem = ({ card }) => {
             />
 
             <h5 className="mt-6 text-3xl font-primary">
-                {fomatCurrency(card.price)} Gift Card
+                {formatCurrency(card.price)} Gift Card
             </h5>
 
             <p className="mt-3 font-light text-lg px-[5%]">

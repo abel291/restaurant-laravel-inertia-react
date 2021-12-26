@@ -1,4 +1,4 @@
-export const fomatCurrency = (n) => {
+export const formatCurrency = (n) => {
     const currencyFormat = Intl.NumberFormat("de-DE", {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2,

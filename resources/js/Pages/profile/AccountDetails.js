@@ -1,11 +1,13 @@
 import Button from "@/Components/Button";
 import Input from "@/Components/Input";
 import Label from "@/Components/Label";
+import ValidationErrors from "@/Components/ValidationErrors";
+import NotificationSuccess from "@/componentss/NotificationSuccess";
 import { useForm } from "@inertiajs/inertia-react";
 import MyAccount from "./MyAccount";
 
 const AccountDetails = (props) => {
-    const { data, setData, processing, post } = useForm({
+    const { data, setData, processing, post, errors } = useForm({
         name: props.auth.user.name,
         phone: props.auth.user.phone,
         email: props.auth.user.email,
@@ -15,13 +17,17 @@ const AccountDetails = (props) => {
     });
     const handleSubmit = async (e) => {
         e.preventDefault();
+        post(route("store_account_details"), { preserveScroll: true });
     };
     const onHandleChange = (event) => {
         setData(event.target.name, event.target.value);
     };
     return (
         <MyAccount active="account-details">
-            <div className="space-y-2">
+            <div className="space-y-4">
+                <NotificationSuccess />
+                <ValidationErrors errors={errors} />
+
                 <h3 className="font-bold text-2xl mb-6"> Detalles de Cuenta</h3>
 
                 <form onSubmit={handleSubmit}>
@@ -33,7 +39,8 @@ const AccountDetails = (props) => {
                             />
                             <Input
                                 className="w-full mt-1"
-                                onChange={onHandleChange}
+                                required={true}
+                                handleChange={onHandleChange}
                                 name="name"
                                 value={data.name}
                             />
@@ -42,7 +49,8 @@ const AccountDetails = (props) => {
                             <Label forInput="email" value="Telefono *" />
                             <Input
                                 className="w-full mt-1"
-                                onChange={onHandleChange}
+                                required={true}
+                                handleChange={onHandleChange}
                                 name="phone"
                                 value={data.phone}
                             />
@@ -51,8 +59,9 @@ const AccountDetails = (props) => {
                             <Label forInput="email" value="Email *" />
                             <Input
                                 className="w-full mt-1"
+                                required={true}
                                 type="email"
-                                onChange={onHandleChange}
+                                handleChange={onHandleChange}
                                 name="email"
                                 value={data.email}
                             />
@@ -62,8 +71,9 @@ const AccountDetails = (props) => {
                             <Label forInput="email" value="Confirmar Email *" />
                             <Input
                                 className="w-full mt-1"
+                                required={true}
                                 type="email"
-                                onChange={onHandleChange}
+                                handleChange={onHandleChange}
                                 value={data.email_confirmation}
                                 name="email_confirmation"
                             />
@@ -72,7 +82,8 @@ const AccountDetails = (props) => {
                             <Label forInput="email" value="Ciudad *" />
                             <Input
                                 className="w-full mt-1"
-                                onChange={onHandleChange}
+                                required={true}
+                                handleChange={onHandleChange}
                                 name="city"
                                 value={data.city}
                             />
@@ -81,7 +92,8 @@ const AccountDetails = (props) => {
                             <Label forInput="email" value="Direccion *" />
                             <Input
                                 className="w-full mt-1"
-                                onChange={onHandleChange}
+                                required={true}
+                                handleChange={onHandleChange}
                                 name="address"
                                 value={data.address}
                             />

@@ -1,6 +1,6 @@
 //import { ShoppingBagIcon } from "@heroicons/react/outline"
 
-import { fomatCurrency } from "@/helpers/helpers";
+import { formatCurrency } from "@/helpers/helpers";
 import { Link } from "@inertiajs/inertia-react";
 
 import Stars from "./Stars";
@@ -31,7 +31,7 @@ const ProductItem = ({ product }) => {
                     <div className="flex items-center justify-between">
                         <div className="bg-yellow-900 inline-block rounded py-2 px-3 ">
                             <h5 className="leading-none lg:leading-none text-yellow-400 font-primary font-bold text-2xl lg:text-xl ">
-                                {fomatCurrency(product.price)}
+                                {formatCurrency(product.price)}
                             </h5>
                         </div>
                         {/* <div className="badge badge-md bg-yellow-400 flex items-center ">

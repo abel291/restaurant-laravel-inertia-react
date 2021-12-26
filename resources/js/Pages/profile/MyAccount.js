@@ -10,8 +10,8 @@ const profileRoutes = [
     },
     {
         name: "Ordenes",
-        path: route("my_account"),
-        active: "order",
+        path: route("orders"),
+        active: "orders",
     },
     {
         name: "Detalles de cuenta",
@@ -38,10 +38,10 @@ const MyAccount = ({ children, active }) => {
             <div className="container py-content">
                 <div className="grid grid-cols-12 md:gap-4 gap-y-10">
                     <div className="col-span-12 md:col-span-3">
-                        <h3 className="text-3xl text-red-500 font-primary ">
+                        <h3 className="text-3xl text-yellow-500 font-primary ">
                             My cuenta
                         </h3>
-                        <div className="flex flex-col font-bold text-lg mt-6">
+                        <div className="flex flex-col text-sm mt-6">
                             {profileRoutes.map((route,index) => (
                                 <Link
                                     key={index}
@@ -50,8 +50,8 @@ const MyAccount = ({ children, active }) => {
                                     className={
                                         "block py-3 pl-4 border-l-4  " +
                                         (active === route.active
-                                            ? "border-yellow-500 text-yellow-500  "
-                                            : "border-yellow-100 text-gray-500 hover:border-yellow-500 hover:text-yellow-500")
+                                            ? "border-yellow-500 text-yellow-500 font-bold "
+                                            : "border-yellow-100  hover:border-yellow-500 hover:text-yellow-500")
                                     }
                                 >
                                     {route.name}

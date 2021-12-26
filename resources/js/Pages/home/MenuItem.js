@@ -1,4 +1,4 @@
-import { fomatCurrency } from "@/helpers/helpers"
+import { formatCurrency } from "@/helpers/helpers"
 import { Link } from "@inertiajs/inertia-react"
 
 
@@ -19,7 +19,7 @@ const MenuItem = ({ product }) => {
             </div>
             <div className="flex md:flex-col flex-row justify-center md:justify-start items-center md:items-end mt-4 md:mt-0 ">
                 <h5 className="mr-4 md:mr-1 font-primary text-2xl  leading-none md:leading-normal whitespace-nowrap">
-                {fomatCurrency(product.price)}
+                {formatCurrency(product.price)}
                 </h5>
 
                 <div className="badge badge-sm md:mt-3 text-right bg-gray-200 text-gray-500 font-primary">{product.portion_size}</div>

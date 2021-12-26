@@ -58,8 +58,10 @@ Route::get('/product/{slug}', [PageController::class, 'product'])->name('product
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('/my-account', [ProfileController::class,'my_account'])->name('my_account');
-
+    Route::get('/orders', [ProfileController::class,'orders'])->name('orders');
     Route::get('/account-details', [ProfileController::class,'show_account_details'])->name('show_account_details');
+    Route::post('/account-details', [ProfileController::class,'store_account_details'])->name('store_account_details');
+    Route::get('/order-details/{order}', [ProfileController::class, 'order_details'])->name('order_details');
 
     Route::resource('shopping-cart', ShoppingCartController::class)->only([
         'index', 'store', 'destroy'
@@ -72,7 +74,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::post('/checkout', [CheckoutController::class,'checkout'])->name('checkout');
 
-    Route::get('/order-success/{order}', [CheckoutController::class, 'order_success'])->name('order_success');
+    
 
 
     Route::middleware(['auth', 'isAdmin'])->prefix('dashboard')->name('dashboard.')->group(function () {

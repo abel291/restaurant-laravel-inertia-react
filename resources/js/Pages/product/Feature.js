@@ -1,5 +1,5 @@
 import Stars from "@/componentss/Stars";
-import { fomatCurrency } from "@/helpers/helpers";
+import { formatCurrency } from "@/helpers/helpers";
 import { ShoppingBagIcon } from "@heroicons/react/solid";
 import { Link, useForm } from "@inertiajs/inertia-react";
 import SelectQuantity from "./SelectQuantity";
@@ -25,7 +25,7 @@ const Feature = ({ product }) => {
             </div>
             <div className="text-3xl  lg:text-4xl font-primary">
                 <span className=" text-yellow-400 ml-4">
-                    {fomatCurrency(product.price)}
+                    {formatCurrency(product.price)}
                 </span>
             </div>
 
