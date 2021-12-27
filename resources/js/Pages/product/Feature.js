@@ -11,7 +11,7 @@ const Feature = ({ product }) => {
     });
     function submit(e) {
         e.preventDefault();
-        post(route("shopping-cart.store"));
+        post(route("shopping-cart.store"),{preserveScroll:true});
     }
     const handleChangeQuantity = (newQuantity) => {
         setData("quantity", newQuantity);
@@ -84,10 +84,13 @@ const Feature = ({ product }) => {
             </form>
             <div>
                 {errors.id && (
-                    <span className="text-sm text-red">{errors.id}</span>
+                    <span className="text-sm text-red-500">{errors.id}</span>
                 )}
                 {errors.slug && (
-                    <span className="text-sm text-red">{errors.slug}</span>
+                    <span className="text-sm text-red-500">{errors.slug}</span>
+                )}
+                {errors.limit && (
+                    <span className="text-sm text-red-500">{errors.limit}</span>
                 )}
             </div>
             <div>

@@ -143,7 +143,7 @@ const Form = ({ onsubmit }) => {
                 <Label forInput="address" value="Direccion" />
 
                 <Input
-                    className="mt-1"
+                    className="mt-1 w-full"
                     type="text"
                     name="address"
                     required

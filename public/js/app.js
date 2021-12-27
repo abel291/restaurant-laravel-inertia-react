@@ -6044,7 +6044,7 @@ function Label(_ref) {
       children = _ref.children;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
     htmlFor: forInput,
-    className: "block font-medium text-sm text-gray-700  font-primary  " + className,
+    className: "block font-medium text-sm text-gray-700  " + className,
     children: value ? value : {
       children: children
     }
@@ -10026,7 +10026,9 @@ var Feature = function Feature(_ref) {
 
   function submit(e) {
     e.preventDefault();
-    post(route("shopping-cart.store"));
+    post(route("shopping-cart.store"), {
+      preserveScroll: true
+    });
   }
 
   var handleChangeQuantity = function handleChangeQuantity(newQuantity) {
@@ -10106,11 +10108,14 @@ var Feature = function Feature(_ref) {
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       children: [errors.id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
-        className: "text-sm text-red",
+        className: "text-sm text-red-500",
         children: errors.id
       }), errors.slug && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
-        className: "text-sm text-red",
+        className: "text-sm text-red-500",
         children: errors.slug
+      }), errors.limit && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+        className: "text-sm text-red-500",
+        children: errors.limit
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("ul", {
@@ -10545,6 +10550,155 @@ var AccountDetails = function AccountDetails(props) {
 
 /***/ }),
 
+/***/ "./resources/js/Pages/profile/ChangePassword.js":
+/*!******************************************************!*\
+  !*** ./resources/js/Pages/profile/ChangePassword.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Components_Button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/Button */ "./resources/js/Components/Button.js");
+/* harmony import */ var _Components_Input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/Input */ "./resources/js/Components/Input.js");
+/* harmony import */ var _Components_Label__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Components/Label */ "./resources/js/Components/Label.js");
+/* harmony import */ var _Components_ValidationErrors__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Components/ValidationErrors */ "./resources/js/Components/ValidationErrors.js");
+/* harmony import */ var _componentss_NotificationSuccess__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/componentss/NotificationSuccess */ "./resources/js/componentss/NotificationSuccess.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _MyAccount__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./MyAccount */ "./resources/js/Pages/profile/MyAccount.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+
+
+
+
+
+
+
+
+
+var ChangePassword = function ChangePassword() {
+  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_6__.useForm)({
+    current_password: "",
+    password: "",
+    password_confirmation: ""
+  }),
+      data = _useForm.data,
+      setData = _useForm.setData,
+      processing = _useForm.processing,
+      post = _useForm.post,
+      errors = _useForm.errors,
+      reset = _useForm.reset;
+
+  var handleSubmit = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(e) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              e.preventDefault();
+              post(route("store_change_password"), {
+                preserveScroll: true,
+                onSuccess: function onSuccess() {
+                  return reset("current_password", "password", "password_confirmation");
+                }
+              });
+
+            case 2:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function handleSubmit(_x) {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
+  var onHandleChange = function onHandleChange(event) {
+    setData(event.target.name, event.target.value);
+  }; // useEffect(() => {
+  //     return () => {};
+  // }, []);
+
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_MyAccount__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    active: "password",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+      className: "space-y-4",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_componentss_NotificationSuccess__WEBPACK_IMPORTED_MODULE_5__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Components_ValidationErrors__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        errors: errors
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
+        className: "font-bold text-2xl mb-6",
+        children: " Cambiar contrase\xF1a"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("form", {
+        onSubmit: handleSubmit,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+          className: "grid grid-cols-1 md:grid-cols-2  gap-6 mb-4",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_3__["default"], {
+              forInput: "current_password",
+              value: "Contrase\xF1a Actual *"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Components_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              className: "w-full mt-1",
+              required: true,
+              type: "password",
+              handleChange: onHandleChange,
+              value: data.current_password,
+              name: "current_password"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_3__["default"], {
+              forInput: "password",
+              value: "Contrase\xF1a nueva *"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Components_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              className: "w-full mt-1",
+              required: true,
+              type: "password",
+              handleChange: onHandleChange,
+              value: data.password,
+              name: "password"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_3__["default"], {
+              forInput: "password_confirmation",
+              value: "Confirmar contrase\xF1a nueva *"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Components_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              className: "w-full mt-1",
+              required: true,
+              type: "password",
+              handleChange: onHandleChange,
+              value: data.password_confirmation,
+              name: "password_confirmation"
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Components_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          processing: processing,
+          children: "Guardar"
+        })]
+      })]
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ChangePassword);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/profile/Dashboard.js":
 /*!*************************************************!*\
   !*** ./resources/js/Pages/profile/Dashboard.js ***!
@@ -10578,7 +10732,7 @@ var Dashboard = function Dashboard() {
           className: "font-bold underline px-1 ",
           children: "pedidos recientes"
         }), ", administrar los", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
-          href: route('show_account_details'),
+          href: route('account_details'),
           className: "font-bold underline px-1 ",
           children: "detalles de su cuenta"
         }), "y", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
@@ -10627,11 +10781,11 @@ var profileRoutes = [{
   active: "orders"
 }, {
   name: "Detalles de cuenta",
-  path: route("show_account_details"),
+  path: route("account_details"),
   active: "account-details"
 }, {
   name: "Cambiar contraseña",
-  path: route("my_account"),
+  path: route("change_password"),
   active: "password"
 }];
 
@@ -10659,7 +10813,7 @@ var MyAccount = function MyAccount(_ref) {
             className: "text-3xl text-yellow-500 font-primary ",
             children: "My cuenta"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-            className: "flex flex-col text-sm mt-6",
+            className: "flex flex-col mt-6",
             children: profileRoutes.map(function (route, index) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.Link, {
                 href: route.path,
@@ -10863,9 +11017,6 @@ var Orders = function Orders(props) {
             children: "Orders"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
             className: "p-4 bg-gray-100 text-heading font-medium text-left",
-            children: "Cantidad"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
-            className: "p-4 bg-gray-100 text-heading font-medium text-left",
             children: "Fecha"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
             className: "p-4 bg-gray-100 text-heading font-medium text-left",
@@ -10888,9 +11039,18 @@ var Orders = function Orders(props) {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
               className: "px-4 py-5 text-left ",
               children: order.created_at
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("td", {
               className: "px-4 py-5 text-left ",
-              children: order.state
+              children: [order.state == "successful" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "px-2 py-1 inline-flex leading-5 font-semibold rounded-full bg-green-100 text-green-800",
+                children: "Completado"
+              }), order.state == "refunded" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "px-2 py-1 inline-flex leading-5 font-semibold rounded-full bg-gray-100 text-gray-800",
+                children: "Rembolsado"
+              }), order.state == "CELED" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "px-2 py-1 inline-flex leading-5 font-semibold rounded-full bg-gray-100 text-gray-800",
+                children: "Rembolsado"
+              })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
               className: "px-4 py-5 text-left ",
               children: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_1__.formatCurrency)(order.total)
@@ -11418,7 +11578,7 @@ var Form = function Form(_ref) {
         forInput: "address",
         value: "Direccion"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_Components_Input__WEBPACK_IMPORTED_MODULE_9__["default"], {
-        className: "mt-1",
+        className: "mt-1 w-full",
         type: "text",
         name: "address",
         required: true,
@@ -67484,6 +67644,8 @@ var map = {
 	"./product/SelectQuantity.js": "./resources/js/Pages/product/SelectQuantity.js",
 	"./profile/AccountDetails": "./resources/js/Pages/profile/AccountDetails.js",
 	"./profile/AccountDetails.js": "./resources/js/Pages/profile/AccountDetails.js",
+	"./profile/ChangePassword": "./resources/js/Pages/profile/ChangePassword.js",
+	"./profile/ChangePassword.js": "./resources/js/Pages/profile/ChangePassword.js",
 	"./profile/Dashboard": "./resources/js/Pages/profile/Dashboard.js",
 	"./profile/Dashboard.js": "./resources/js/Pages/profile/Dashboard.js",
 	"./profile/MyAccount": "./resources/js/Pages/profile/MyAccount.js",

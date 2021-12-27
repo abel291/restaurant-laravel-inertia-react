@@ -22,7 +22,7 @@ class ShoppingCartController extends Controller
     public function index()
     {
         $user = Auth::user(); //auth()->user()->with('shopping_cart');
-        
+
         return Inertia::render('shopping_cart/ShoppingCart', [
             'products' => ProductResource::collection($user->shopping_cart),
             'meta' => $user->total_price
@@ -49,16 +49,14 @@ class ShoppingCartController extends Controller
 
         $is_new_product = $user->shopping_cart->where('id', $request->id)->isEmpty();
         $count_product = $user->shopping_cart->count();
-        if ($is_new_product && $count_product > 10) {
-            return response()->json([
-                'message' => 'El limite del carrito es de 10 productos'
-            ], 422);
+        if ($is_new_product && $count_product >= 10) {
+            return Redirect::back()
+                ->withErrors(['limit' => 'El limite del carrito es de 10 productos']);
         }
 
         if ($product->stock < $request->quantity) {
-            return response()->json([
-                'message' => 'No hay stock disponible'
-            ], 422);
+            return Redirect::route('shopping-cart.index')
+                ->withErrors(['stock' => 'No hay stock disponible']);
         }
 
         /*El método updateOrInsert intentará localizar un registro de base de datos coincidente utilizando los 
@@ -98,15 +96,15 @@ class ShoppingCartController extends Controller
      * @param  string  $id
      * @return \Illuminate\Http\Response
      */
-    
+
 
     public function apply_cupon_discount(Request $request)
     {
-        
+
         $request->validate([
             'code' => 'required|exists:discount_codes,code',
         ]);
-        
+
         $discount = DiscountCode::where('code', $request->code)->where('active', true)->first();
 
         if (!$discount) { //esta vacio

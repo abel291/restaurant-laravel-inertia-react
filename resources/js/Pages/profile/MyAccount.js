@@ -15,12 +15,12 @@ const profileRoutes = [
     },
     {
         name: "Detalles de cuenta",
-        path: route("show_account_details"),
+        path: route("account_details"),
         active: "account-details",
     },
     {
         name: "Cambiar contraseña",
-        path: route("my_account"),
+        path: route("change_password"),
         active: "password",
     },
 ];
@@ -41,7 +41,7 @@ const MyAccount = ({ children, active }) => {
                         <h3 className="text-3xl text-yellow-500 font-primary ">
                             My cuenta
                         </h3>
-                        <div className="flex flex-col text-sm mt-6">
+                        <div className="flex flex-col mt-6">
                             {profileRoutes.map((route,index) => (
                                 <Link
                                     key={index}

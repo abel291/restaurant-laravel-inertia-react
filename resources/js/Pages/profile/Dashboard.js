@@ -14,7 +14,7 @@ const Dashboard = () => {
                         pedidos recientes
                     </Link>
                     , administrar los
-                    <Link href={route('show_account_details')} className="font-bold underline px-1 ">
+                    <Link href={route('account_details')} className="font-bold underline px-1 ">
                         detalles de su cuenta
                     </Link>
                     y

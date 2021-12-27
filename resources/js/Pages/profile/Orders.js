@@ -5,7 +5,7 @@ import { Link } from "@inertiajs/inertia-react";
 import MyAccount from "./MyAccount";
 
 const Orders = (props) => {
-    console.log(props.orders)
+    console.log(props.orders);
     return (
         <MyAccount active="orders">
             <table className="w-full rounded-md overflow-hidden">
@@ -14,9 +14,7 @@ const Orders = (props) => {
                         <th className="p-4 bg-gray-100 text-heading font-medium text-left">
                             Orders
                         </th>
-                        <th className="p-4 bg-gray-100 text-heading font-medium text-left">
-                            Cantidad
-                        </th>
+
                         <th className="p-4 bg-gray-100 text-heading font-medium text-left">
                             Fecha
                         </th>
@@ -45,10 +43,24 @@ const Orders = (props) => {
                                 {order.created_at}
                             </td>
                             <td className="px-4 py-5 text-left ">
-                                {order.state}
+                                {order.state == "successful" && (
+                                    <span className="px-2 py-1 inline-flex leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                        Completado
+                                    </span>
+                                )}
+                                {order.state == "refunded" && (
+                                    <span className="px-2 py-1 inline-flex leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                                        Rembolsado
+                                    </span>
+                                )}
+                                {order.state == "CELED" && (
+                                    <span className="px-2 py-1 inline-flex leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                                        Rembolsado
+                                    </span>
+                                )}
                             </td>
                             <td className="px-4 py-5 text-left ">
-                                {formatCurrency(order.total)} 
+                                {formatCurrency(order.total)}
                             </td>
                             {/* <td className="px-4 py-5 text-left ">
                                 <button>Cancelar pedido</button>
@@ -58,7 +70,7 @@ const Orders = (props) => {
                 </tbody>
             </table>
             <div className="border-t border-gray-200 px-4 py-5 ">
-                <Pagination  data={props.orders} />
+                <Pagination data={props.orders} />
             </div>
         </MyAccount>
     );
