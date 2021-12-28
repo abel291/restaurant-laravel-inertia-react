@@ -8,7 +8,7 @@ const Orders = (props) => {
     console.log(props.orders);
     return (
         <MyAccount active="orders">
-            <table className="w-full rounded-md overflow-hidden">
+            <table className="w-full rounded-lg overflow-hidden">
                 <thead>
                     <tr>
                         <th className="p-4 bg-gray-100 text-heading font-medium text-left">

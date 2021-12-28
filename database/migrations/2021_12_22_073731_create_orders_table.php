@@ -27,8 +27,7 @@ class CreateOrdersTable extends Migration
             $table->float('shipping',10, 2);
             $table->float('total',10, 2);
             $table->enum('state', ['canceled', 'refunded', 'successful'])->default('successful');
-            $table->string('stripe_id')->collation('utf8_bin')->nullable()->index();
-
+            $table->string('stripe_id')->nullable()->index();
             $table->foreignId('user_id')->index();
             $table->timestamps();
         });
