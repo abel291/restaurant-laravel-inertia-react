@@ -9,6 +9,7 @@ use App\Http\Livewire\Category\ListCategories;
 use App\Http\Livewire\DiscountCode\ListDiscountCode;
 use App\Http\Livewire\Gallery\ListGallery;
 use App\Http\Livewire\GiftCard\ListGiftCard;
+use App\Http\Livewire\Order\ListOrder;
 use App\Http\Livewire\Page\ListPage;
 use App\Http\Livewire\Product\ListProducts;
 use App\Http\Livewire\Promo\ListPromo;
@@ -90,6 +91,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::get('/gallery', ListGallery::class)->name('gallery');
         Route::get('/page', ListPage::class)->name('page');
         Route::get('/promo', ListPromo::class)->name('promo');
+        Route::get('/order', ListOrder::class)->name('order');
     });
     
 });

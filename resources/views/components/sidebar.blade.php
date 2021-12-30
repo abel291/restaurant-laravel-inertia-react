@@ -45,6 +45,11 @@ $nav_items = [
         'route' => 'dashboard.promo',
         'icon' => 'badge-check',
     ],
+    [
+        'name' => 'Ordernes',
+        'route' => 'dashboard.order',
+        'icon' => 'badge-check',
+    ],
 ];
 @endphp
 <div x-data="{ open: false }"

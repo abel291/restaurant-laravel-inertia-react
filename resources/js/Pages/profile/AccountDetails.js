@@ -23,85 +23,76 @@ const AccountDetails = (props) => {
         setData(event.target.name, event.target.value);
     };
     return (
-        <MyAccount active="account-details">
-            <div className="space-y-4">
-                <NotificationSuccess />
-                <ValidationErrors errors={errors} />
-
-                <h3 className="font-bold text-2xl mb-6"> Detalles de Cuenta</h3>
-
-                <form onSubmit={handleSubmit}>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
-                        <div>
-                            <Label
-                                forInput="email"
-                                value="Nombre y Apellido *"
-                            />
-                            <Input
-                                className="w-full mt-1"
-                                required={true}
-                                handleChange={onHandleChange}
-                                name="name"
-                                value={data.name}
-                            />
-                        </div>
-                        <div>
-                            <Label forInput="email" value="Telefono *" />
-                            <Input
-                                className="w-full mt-1"
-                                required={true}
-                                handleChange={onHandleChange}
-                                name="phone"
-                                value={data.phone}
-                            />
-                        </div>
-                        <div>
-                            <Label forInput="email" value="Email *" />
-                            <Input
-                                className="w-full mt-1"
-                                required={true}
-                                type="email"
-                                handleChange={onHandleChange}
-                                name="email"
-                                value={data.email}
-                            />
-                        </div>
-
-                        <div>
-                            <Label forInput="email" value="Confirmar Email *" />
-                            <Input
-                                className="w-full mt-1"
-                                required={true}
-                                type="email"
-                                handleChange={onHandleChange}
-                                value={data.email_confirmation}
-                                name="email_confirmation"
-                            />
-                        </div>
-                        <div>
-                            <Label forInput="email" value="Ciudad *" />
-                            <Input
-                                className="w-full mt-1"
-                                required={true}
-                                handleChange={onHandleChange}
-                                name="city"
-                                value={data.city}
-                            />
-                        </div>
-                        <div className="md:col-span-2">
-                            <Label forInput="email" value="Direccion *" />
-                            <Input
-                                className="w-full mt-1"
-                                required={true}
-                                handleChange={onHandleChange}
-                                name="address"
-                                value={data.address}
-                            />
-                        </div>
+        <MyAccount active="account-details" title="Detalles de Cuenta">
+            <ValidationErrors errors={errors} />
+            <form onSubmit={handleSubmit}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+                    <div>
+                        <Label forInput="email" value="Nombre y Apellido *" />
+                        <Input
+                            className="w-full mt-1"
+                            required={true}
+                            handleChange={onHandleChange}
+                            name="name"
+                            value={data.name}
+                        />
                     </div>
-                    <Button processing={processing}>Guardar</Button>
-                </form>
-            </div>
+                    <div>
+                        <Label forInput="email" value="Telefono *" />
+                        <Input
+                            className="w-full mt-1"
+                            required={true}
+                            handleChange={onHandleChange}
+                            name="phone"
+                            value={data.phone}
+                        />
+                    </div>
+                    <div>
+                        <Label forInput="email" value="Email *" />
+                        <Input
+                            className="w-full mt-1"
+                            required={true}
+                            type="email"
+                            handleChange={onHandleChange}
+                            name="email"
+                            value={data.email}
+                        />
+                    </div>
+
+                    <div>
+                        <Label forInput="email" value="Confirmar Email *" />
+                        <Input
+                            className="w-full mt-1"
+                            required={true}
+                            type="email"
+                            handleChange={onHandleChange}
+                            value={data.email_confirmation}
+                            name="email_confirmation"
+                        />
+                    </div>
+                    <div>
+                        <Label forInput="email" value="Ciudad *" />
+                        <Input
+                            className="w-full mt-1"
+                            required={true}
+                            handleChange={onHandleChange}
+                            name="city"
+                            value={data.city}
+                        />
+                    </div>
+                    <div className="md:col-span-2">
+                        <Label forInput="email" value="Direccion *" />
+                        <Input
+                            className="w-full mt-1"
+                            required={true}
+                            handleChange={onHandleChange}
+                            name="address"
+                            value={data.address}
+                        />
+                    </div>
+                </div>
+                <Button processing={processing}>Guardar</Button>
+            </form>
         </MyAccount>
     );
 };

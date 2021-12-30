@@ -87,7 +87,10 @@ class CheckoutController extends Controller
             $error = 'Al parecer hubo un error! El pago a través de su targeta no se pudo realizar.';
             return response()->json(['error' => $error], 500);
         }
-        return Redirect::route('order_success', [$order->order]);
+        return Redirect::route('order_details', [$order->order])->with(
+            'success',
+            'Orden completada con exito'
+        );
     }
     
 }

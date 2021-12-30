@@ -7,7 +7,7 @@ import MyAccount from "./MyAccount";
 const Orders = (props) => {
     console.log(props.orders);
     return (
-        <MyAccount active="orders">
+        <MyAccount active="orders" title="Ordenes">
             <table className="w-full rounded-lg overflow-hidden">
                 <thead>
                     <tr>

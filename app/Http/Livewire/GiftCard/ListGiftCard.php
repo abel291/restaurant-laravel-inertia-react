@@ -23,7 +23,7 @@ class ListGiftCard extends Component
         $data = Product::where('name', 'like', '%' . $this->search . '%')
             ->with('category')
             ->whereHas('category' , function ($query) {
-                $query->where('type','=', 'gift_card');
+                $query->where('type','=', 'gift_cards');
             })
             ->orderBy($this->sortBy, $this->sortDirection)
             ->paginate(10);

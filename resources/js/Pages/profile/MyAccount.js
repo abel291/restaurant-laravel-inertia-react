@@ -1,5 +1,6 @@
 import Button from "@/Components/Button";
 import BannerHero from "@/componentss/BannerHero";
+import NotificationSuccess from "@/componentss/NotificationSuccess";
 import AppLayout from "@/Layouts/AppLayout";
 import { Link, useForm, usePage } from "@inertiajs/inertia-react";
 const profileRoutes = [
@@ -24,7 +25,7 @@ const profileRoutes = [
         active: "password",
     },
 ];
-const MyAccount = ({ children, active }) => {
+const MyAccount = ({ children, active, title }) => {
     const { auth } = usePage().props;
 
     const logout = useForm();
@@ -42,7 +43,7 @@ const MyAccount = ({ children, active }) => {
                             My cuenta
                         </h3>
                         <div className="flex flex-col mt-6">
-                            {profileRoutes.map((route,index) => (
+                            {profileRoutes.map((route, index) => (
                                 <Link
                                     key={index}
                                     href={route.path}
@@ -64,13 +65,18 @@ const MyAccount = ({ children, active }) => {
                                 onClick={handleLogout}
                                 type="Button"
                                 disabled={logout.processing}
-                                
                             >
-                               Cerrar Sesion
+                                Cerrar Sesion
                             </button>
                         </div>
                     </div>
-                    <div className="col-span-12 md:col-span-9">{children}</div>
+                    <div className="col-span-12 md:col-span-9">
+                        <div className="space-y-5">
+                            <NotificationSuccess />
+                            <h2 className="text-3xl font-bold">{title}</h2>
+                            {children}
+                        </div>
+                    </div>
                 </div>
             </div>
         </AppLayout>

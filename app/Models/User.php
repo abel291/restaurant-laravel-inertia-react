@@ -53,6 +53,7 @@ class User extends Authenticatable
     ];
     protected $attributes = [
         'active' => 0,
+        'name' => '',
     ];
 
     /**

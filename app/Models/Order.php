@@ -36,6 +36,9 @@ class Order extends Model
         'shipping' => 'float',
         'total' => 'float',
     ];
+    protected $attributes = [
+        'products' => "[]",
+    ];
     public function user()
     {
         return $this->belongsTo(User::class);
