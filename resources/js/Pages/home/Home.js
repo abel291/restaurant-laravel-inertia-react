@@ -1,11 +1,8 @@
 import BannerHero from "../../componentss/BannerHero"
 import ProductItem from "../../componentss/ProductItem"
-import Promo from "../../componentss/CardSection"
+import Promo from "../../componentss/ThreeCards"
 import BannerDelivery from "./BannerDelivery"
-import Card from "./Card"
 import MenuList from "./MenuList"
-import PageLoading from "../../componentss/PageLoading"
-import PageError from "../../componentss/PageError"
 import AppLayout from "@/Layouts/AppLayout"
 import Promos from "./Promos"
 
@@ -16,7 +13,7 @@ const Home = (props) => {
             <BannerHero img={props.page.img} title={props.page.title} />
             <div className="container ">
                 <div className=" py-content">
-                    <Promos promos={props.page.promos}/>
+                    <Promos promos={props.promos}/>
                 </div>
                 <div className=" py-content">
                     <div className="text-center">

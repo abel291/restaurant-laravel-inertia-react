@@ -9,9 +9,9 @@ const Card2 = ({ title, subTitle, path, img }) => {
                 <p className=" text-base lg:text-lg leading-none  mt-3">{subTitle}</p>
 
                 <div className="mt-4">
-                    <a to={path} className="btn btn-red btn-sm">
+                    <Link href={path} className="btn btn-red btn-sm">
                         Conoce mas
-                    </a>
+                    </Link>
                 </div>
             </div>
             <div className="absolute inset-0 z-0">

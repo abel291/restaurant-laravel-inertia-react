@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\ProductResource;
+use App\Http\Resources\PromosResource;
 use App\Models\Category;
 use App\Models\Gallery;
 use App\Models\Page;
 use App\Models\Product;
+use App\Models\Promo;
 use Illuminate\Database\Eloquent\Builder;
 use Inertia\Inertia;
 
@@ -17,14 +19,19 @@ class PageController extends Controller
     public function home()
     {
         $menus = Category::inRandomOrder()->take(2)->where('type', 'menu')->with('products')->get();
+
         $products_featured  = Product::inRandomOrder()->take(8)->whereHas('category', function (Builder $query) {
             $query->where('type', 'menu');
         })->get();
-        $page = Page::where('type', 'home')->with('promos')->first();
+
+        $page = Page::where('type', 'home')->with(['promos' => function ($query) {
+            $query->where('active', true)->with('product');
+        }])->first();
 
         return Inertia::render('home/Home', [
             "menus" => CategoryResource::collection($menus),
             "page" => $page,
+            "promos" => PromosResource::collection($page->promos),
             "products_featured" => ProductResource::collection($products_featured),
         ]);
     }
@@ -32,7 +39,7 @@ class PageController extends Controller
     {
         $menus = Category::with('products')->where('type', 'menu')->get();
         $page = Page::where('type', 'menu')->with('promos')->first();
-        
+
         return Inertia::render('menu/Menu', [
             "menu" => CategoryResource::collection($menus),
             "page" => $page,

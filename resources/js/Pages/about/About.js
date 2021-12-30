@@ -1,5 +1,5 @@
 import BannerHero from "@/componentss/BannerHero"
-import CardSection from "@/componentss/CardSection"
+import ThreeCards from "@/componentss/ThreeCards"
 import Subscribe from "@/componentss/Subscribe"
 import AppLayout from "@/Layouts/AppLayout"
 
@@ -23,7 +23,7 @@ const About = (props) => {
                 <Section2/>
             </div>
             <div className=" px-0 mx-3 py-content  ">
-                <CardSection />
+                <ThreeCards />
             </div>
             <div className="container py-content">
                 <Subscribe />

@@ -1,9 +1,9 @@
 import { Link } from "@inertiajs/inertia-react"
 
 
-const Card = ({ title, subTitle, img, path }) => {
+const Card = ({ title, subTitle, img, url="/" }) => {
     return (
-        <a href="/">
+        <Link href={url}>
             <div
                 className="px-6  pt-10 pb-10 lg:pt-20 lg:pb-12 rounded-lg relative overflow-hidden bg-center bg-cover bg-no-repeat"
                 style={{ backgroundImage: "url(/storage/" + img + ")" }}
@@ -18,7 +18,7 @@ const Card = ({ title, subTitle, img, path }) => {
                     </div>
                 </div>
             </div>
-        </a>
+        </Link>
     )
 }
 
