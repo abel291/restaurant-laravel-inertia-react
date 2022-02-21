@@ -136,3 +136,7 @@ nav .nav-link-item {
         @apply text-[0.95rem];
     }
 }
+
+#nprogress .bar{
+    height: 4px !important;
+}

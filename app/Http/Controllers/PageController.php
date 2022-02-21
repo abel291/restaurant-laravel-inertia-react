@@ -17,7 +17,8 @@ use Inertia\Inertia;
 class PageController extends Controller
 {
     public function home()
-    {
+    {   
+       
         $menus = Category::inRandomOrder()->take(2)->where('type', 'menu')->with('products')->get();
 
         $products_featured  = Product::inRandomOrder()->take(8)->whereHas('category', function (Builder $query) {

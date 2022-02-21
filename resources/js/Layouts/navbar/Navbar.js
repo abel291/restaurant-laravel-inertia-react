@@ -5,7 +5,7 @@ import Logo from "../Logo";
 import routes from "../routes";
 import { Link, usePage } from "@inertiajs/inertia-react";
 import ProfileDropdown from "./ProfileDropdown";
-import NavbarMovil from "./NavbarMovil";
+
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 
 //import ProfileDropdown from "./ProfileDropdown"
