@@ -1,6 +1,5 @@
-const mix = require('laravel-mix');
-const tailwindcss = require('tailwindcss');
-
+const mix = require("laravel-mix");
+const tailwindcss = require("tailwindcss");
 
 /*
  |--------------------------------------------------------------------------
@@ -13,24 +12,26 @@ const tailwindcss = require('tailwindcss');
  |
  */
 
-mix
-    .js('resources/js/dashboard/dashboard.js', 'public/js')
-    
-    .postCss('resources/css/dashboard/dashboard.css', 'public/css',[
-        require('postcss-import'),
-        tailwindcss('tailwind.config.dashboard.js'),
-        require('autoprefixer'),
-    ]) 
+mix.js("resources/js/dashboard/dashboard.js", "public/js")
 
-    
-    .js('resources/js/app.js', 'public/js')
-    .react()
-    .postCss('resources/css/app.css', 'public/css', [
-        require('postcss-import'),
-        tailwindcss('./tailwind.config.js'),
-        require('autoprefixer'),
+    .postCss("resources/css/dashboard/dashboard.css", "public/css", [
+        require("postcss-import"),
+        tailwindcss("tailwind.config.dashboard.js"),
+        require("autoprefixer"),
     ])
-    .webpackConfig(require('./webpack.config'));
+
+    .js("resources/js/app.js", "public/js")
+    .react()
+    .postCss("resources/css/app.css", "public/css", [
+        require("postcss-import"),
+        tailwindcss("./tailwind.config.js"),
+        require("autoprefixer"),
+    ])
+    .webpackConfig(require("./webpack.config"));
+// .browserSync({
+//     proxy:'127.0.0.1:8000'
+// })
+
 
 if (mix.inProduction()) {
     mix.version();

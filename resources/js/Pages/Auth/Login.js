@@ -39,7 +39,7 @@ export default function Login({ status, canResetPassword }) {
 
     return (
         <Guest>
-            <Head title="Login | React Restaurant" />
+            <Head title="Loginn | React Restaurant" />
 
             {status && (
                 <div className="mb-4 font-medium text-sm text-green-600">
@@ -90,10 +90,10 @@ export default function Login({ status, canResetPassword }) {
                         </span>
                     </label>
 
-                    <p class="text-sm">
+                    <p className="text-sm">
                         <span>¿No tienes cuenta? </span>
                         <Link
-                            class="font-bold text-yellow-500 hover:text-yellow-400"
+                            className="font-bold text-yellow-500 hover:text-yellow-400"
                             href="/register"
                         >
                             Registrarte

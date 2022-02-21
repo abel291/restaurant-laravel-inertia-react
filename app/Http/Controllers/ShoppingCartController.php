@@ -25,7 +25,7 @@ class ShoppingCartController extends Controller
 
         return Inertia::render('shopping_cart/ShoppingCart', [
             'products' => ProductResource::collection($user->shopping_cart),
-            'meta' => $user->total_price
+            'meta' => $user->shopping_cart_total
         ]);
     }
 

@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Category;
 
 use App\Helpers\Helpers;
 use App\Models\Category;
-use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Str;
