@@ -15,10 +15,7 @@ const routes = {
     gallery: {
         name: "Galeria",
     },
-    // blog: {
-    //      type:'public',
-    //      name: "Blog",
-    // },
+    
     location: {
         name: "Horario y hubicacion",
     },

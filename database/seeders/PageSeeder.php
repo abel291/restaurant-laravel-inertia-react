@@ -3,8 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\Page;
+use App\Models\Promo;
 use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class PageSeeder extends Seeder
 {
@@ -80,8 +82,11 @@ class PageSeeder extends Seeder
             // ],
         ];
         Page::truncate();
+        DB::table('page_promo')->truncate();
+        Promo::truncate();
         Page::factory()
             ->count(count($pages))
+            ->has(Promo::factory()->count(2))
             ->state(new Sequence(...$pages))
             ->create();
         // foreach ($pages as $key => $page) {

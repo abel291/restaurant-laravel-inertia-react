@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             ShoppingCartSeeder::class,
             PageSeeder::class,
             GallerySeeder::class,
-            PromoSeeder::class,
+            //PromoSeeder::class,
         ]);
         DiscountCode::factory(10)->create();
     }

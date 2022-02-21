@@ -43,7 +43,7 @@ class CheckoutController extends Controller
             ];
         });
 
-        $total_price = $user->total_price; //mutator
+        $total_price = $user->shopping_cart_total; //mutator
 
         if ($total_price['discount']) {
             $discount = $total_price['discount'];

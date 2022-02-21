@@ -71,7 +71,7 @@ class User extends Authenticatable
         return $this->hasMany(Order::class);
     }
 
-    public function getTotalPriceAttribute()
+    public function getShoppingCartTotalAttribute()
     {
         $sub_total = $this->shopping_cart->sum('pivot.total_price_quantity');
         $shipping = 11;

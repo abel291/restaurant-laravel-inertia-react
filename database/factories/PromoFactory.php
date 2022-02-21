@@ -23,7 +23,7 @@ class PromoFactory extends Factory
             "title" => $this->faker->sentence(2),
             "sub_title" => $this->faker->sentence(2),
             "img" => $this->faker->randomElement(['home/card-banner-1.jpg','home/card-banner-2.jpg']),            
-            "active" => rand(0,1),            
+            "active" => 1,            
             "start_date" => $start_date,            
             "end_date" => $end_date,            
             "product_id" => Product::get()->random()->id,            
