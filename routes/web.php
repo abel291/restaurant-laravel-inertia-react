@@ -58,10 +58,11 @@ Route::get('/product/{slug}', [PageController::class, 'product'])->name('product
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
-    Route::get('/my-account', [ProfileController::class,'my_account'])->name('my_account');
-    Route::get('/orders', [ProfileController::class,'orders'])->name('orders');
-    Route::get('/account-details', [ProfileController::class,'account_details'])->name('account_details');
-    Route::post('/account-details', [ProfileController::class,'store_account_details'])->name('store_account_details');
+    Route::get('/my-account', [ProfileController::class, 'my_account'])->name('my_account');
+
+    Route::get('/account-details', [ProfileController::class, 'account_details'])->name('account_details');
+    Route::post('/account-details', [ProfileController::class, 'store_account_details'])->name('store_account_details');
+    Route::get('/orders', [ProfileController::class, 'orders'])->name('orders');
     Route::get('/order-details/{order}', [ProfileController::class, 'order_details'])->name('order_details');
     Route::get('/change-password', [ProfileController::class, 'change_password'])->name('change_password');
     Route::post('/change-password', [ProfileController::class, 'store_change_password'])->name('store_change_password');
@@ -70,13 +71,13 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         'index', 'store', 'destroy'
     ]);
     Route::get('/shopping-cart/apply-cupon-discount', [ShoppingCartController::class, 'apply_cupon_discount'])
-        ->name('apply_cupon_discount');        
+        ->name('apply_cupon_discount');
 
     Route::get('/shopping-cart/remove-cupon-discount', [ShoppingCartController::class, 'remove_cupon_discount'])
         ->name('remove_cupon_discount');
 
-    Route::post('/checkout', [CheckoutController::class,'checkout'])->name('checkout');
-    
+    Route::post('/checkout', [CheckoutController::class, 'checkout'])->name('checkout');
+
     Route::middleware(['auth', 'isAdmin'])->prefix('dashboard')->name('dashboard.')->group(function () {
 
         Route::get('/', function () {
@@ -93,7 +94,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::get('/promo', ListPromo::class)->name('promo');
         Route::get('/order', ListOrder::class)->name('order');
     });
-    
 });
 
 require __DIR__ . '/auth.php';

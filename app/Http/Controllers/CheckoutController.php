@@ -8,11 +8,13 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Stripe;
+use Illuminate\Support\Str;
 
 class CheckoutController extends Controller
 {
     public function checkout(Request $request)
     {
+
         $request->validate([
 
             'phone' => 'required|string|max:255',
@@ -63,19 +65,21 @@ class CheckoutController extends Controller
         try {
 
             $description_stripe = $user->name . " - " . $user->shopping_cart->count() . " plato(s)";
+            if (env('APP_ENV') != "testing") {
+                $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
+                $payment = $stripe->paymentIntents->create([
+                    'amount' => $order->total * 100,
+                    'currency' => 'usd',
+                    'description' => $description_stripe,
+                    'payment_method' => $request->paymentMethod,
+                    'confirmation_method' => 'manual',
+                    'confirm' => true,
+                ]);
+                $order->stripe_id = $payment->id;
+            } else {
+                $order->stripe_id = Str::random();
+            }
 
-            $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
-            $payment = $stripe->paymentIntents->create([
-                'amount' => $order->total * 100,
-                'currency' => 'usd',
-                'description' => $description_stripe,
-                'payment_method' => $request->paymentMethod,
-                'confirmation_method' => 'manual',
-                'confirm' => true,
-            ]);
-
-            $order->stripe_id = $payment->id;
-            //$order->stripe_id = 'test';
             $order->save();
             session()->forget('discount_code');
 
@@ -83,7 +87,7 @@ class CheckoutController extends Controller
         } catch (\Exception $e) {
 
             DB::rollBack();
-            dd($e);
+
             $error = 'Al parecer hubo un error! El pago a través de su targeta no se pudo realizar.';
             return response()->json(['error' => $error], 500);
         }
@@ -92,5 +96,4 @@ class CheckoutController extends Controller
             'Orden completada con exito'
         );
     }
-    
 }

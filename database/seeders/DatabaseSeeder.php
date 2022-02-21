@@ -18,9 +18,10 @@ class DatabaseSeeder extends Seeder
     {
         Image::truncate();
         $this->call([
-            UserSeeder::class,
+            
             CategorySeeder::class,
             ProductSeeder::class,
+            UserSeeder::class,
             ShoppingCartSeeder::class,
             PageSeeder::class,
             GallerySeeder::class,

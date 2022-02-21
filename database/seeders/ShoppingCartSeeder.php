@@ -18,7 +18,7 @@ class ShoppingCartSeeder extends Seeder
     public function run()
     {
         DB::table('shopping_cart')->truncate();
-        $products = Product::get()->random(10);
+        $products = Product::get()->random(2);
         $users = User::get();
         foreach ($users as $user) {
 
