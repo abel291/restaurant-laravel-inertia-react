@@ -9,7 +9,7 @@ import Promos from "./Promos"
 const Home = (props) => {
     
     return (
-        <AppLayout>
+        <AppLayout title="Inicio">
             <BannerHero img={props.page.img} title={props.page.title} />
             <div className="container ">
                 <div className=" py-content">

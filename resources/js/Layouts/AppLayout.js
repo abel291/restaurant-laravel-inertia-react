@@ -4,7 +4,7 @@ import { Head } from "@inertiajs/inertia-react";
 const AppLayout = ({ children, title = "" }) => {
     return (
         <>
-            <Head title={(title && title + " | ") + "React restaurant"} />
+            <Head title={(title && title + " | ") + "Restaurant"} />
             <Navbar />
             {children}
             <Footer />
