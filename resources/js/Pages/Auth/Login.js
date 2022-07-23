@@ -102,7 +102,7 @@ export default function Login({ status, canResetPassword }) {
                 </div>
 				<div className="text-left text-sm mt-4 font-medium text-gray-300">
 					<span className="block">admin: user@user.com</span>
-					<span className="block">invitado: user2@user.com</span>
+					<span className="block">invitado: user@user2.com</span>
 					<span className="block">contraseña : password</span>
 				</div>
 
